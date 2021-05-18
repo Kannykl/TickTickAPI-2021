@@ -15,3 +15,5 @@ typing-extensions==3.7.4.3
 urllib3==1.26.4
 zipp==3.4.1
 pytest-cov==2.11.1
+furl~=2.1.2
+setuptools~=56.0.0
