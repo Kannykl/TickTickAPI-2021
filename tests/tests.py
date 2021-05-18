@@ -2,10 +2,6 @@ from src.tick_tick import TickAPI
 import pytest
 
 
-# ToDO:
-#       1. Сделать пакет из проекта (туториал на офф сайте)
-
-
 def test_successful_tick_authorization(successful_login_info):
     TickAPI(successful_login_info[0], successful_login_info[1])
 
@@ -71,7 +67,7 @@ def test_get_tasks_by_title(authenticated_session: TickAPI, test_tasks):
     assert task4[0]['title'] == test_tasks[3]
 
 
-def test_add_task(authenticated_session: TickAPI):
+def test_add_task(authenticated_session: TickAPI, test_tasks):
     projects_id = authenticated_session.get_projects_id()
     task1 = authenticated_session.add_task('OnlyOneTask', projects_id[0], 'TestContent1')
     task2 = authenticated_session.add_task('SecondAwesomeTask', projects_id[1], 'TestContent2')
@@ -111,7 +107,7 @@ def test_get_projects_by_colour(authenticated_session: TickAPI, test_projects, t
     assert turquoise_project[0]['name'] == test_projects[2]
 
 
-def test_get_projects_with_wrong_colour(authenticated_session: TickAPI):
+def test_get_projects_with_wrong_colour(authenticated_session: TickAPI, test_projects):
     with pytest.raises(KeyError):
         authenticated_session.get_projects_by_colour('BadColour')
 
@@ -121,7 +117,7 @@ def test_get_zero_projects_by_colour(authenticated_session: TickAPI, test_projec
     assert [] == green_projects
 
 
-def test_add_tag(authenticated_session: TickAPI, tags_colours):
+def test_add_tag(authenticated_session: TickAPI, tags_colours, test_tags):
     tag1 = authenticated_session.add_tag('unrealtag', tags_colours[0])
     assert tag1 == 'unrealtag'
 
@@ -182,7 +178,7 @@ def test_delete_not_existing_project(authenticated_session: TickAPI):
         authenticated_session.delete_project('NotExistingProject')
 
 
-def test_delete_task(authenticated_session: TickAPI):
+def test_delete_task(authenticated_session: TickAPI, test_projects, test_tags):
     projects = authenticated_session.get_projects_id()
     tags = authenticated_session.get_tags()
     authenticated_session.add_task('TESTTASK', projects[0], 'content', [tags[0]['name']])
