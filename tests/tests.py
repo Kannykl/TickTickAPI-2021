@@ -11,7 +11,7 @@ def test_successful_tick_authorization(successful_login_info):
 
 
 def test_fail_tick_authorization(wrong_login_info):
-    with pytest.raises(AttributeError):
+    with pytest.raises(Exception):
         TickAPI(wrong_login_info[0], wrong_login_info[1])
 
 
