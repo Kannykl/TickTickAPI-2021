@@ -16,6 +16,6 @@
 
 ```
 pip install -r requirements.txt
-pytest tests.py
+pytest --cov=src tests/tests.py
 ```
 
