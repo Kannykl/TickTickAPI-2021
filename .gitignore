@@ -1,2 +1,8 @@
 .idea/
 __pycache__/
+.pypirc
+tickapi.toml
+setup.py
+build
+dist
+TickTickAPI.egg-info
