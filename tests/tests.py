@@ -2,10 +2,6 @@ from src.tick_tick import TickAPI
 import pytest
 
 
-# ToDO:
-#       1. Сделать пакет из проекта (туториал на офф сайте)
-
-
 def test_successful_tick_authorization(successful_login_info):
     TickAPI(successful_login_info[0], successful_login_info[1])
 
