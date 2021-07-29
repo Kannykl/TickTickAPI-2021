@@ -29,6 +29,9 @@ class TickAPI:
             'user-agent':
                 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36'
                 ' (KHTML, like Gecko) Chrome/88.0.4324.96 Safari/537.36',
+            "x-device": '{"platform":"web","os":"Linux x86_64","device":"Chrome 91.0.4472.114",'
+                        '"name":"","version":3925,"id":"605e49896d4b4b0cf09033bd","channel":"website",'
+                        '"campaign":"","websocket":""}',
         }
         request = self.session.post(f"{self.base_url}/user/signon?wc=true", json={
             'username': f'{username}',
