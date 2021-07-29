@@ -53,6 +53,22 @@ tags = API.get_tags()
 tag = API.get_tag_by_name('МойКрутойТег')
 ```
 
+
+
+##### **Command Line Interface**
+
+Авторизация в приложении
+
+```
+tick --login username password
+```
+
+Добавление задачи
+
+```
+tick --add_task Title project_id text_of_task
+```
+
 ##### Запуск
 
 *Перед запуском тестов убедитесь, что установили все зависимости*
